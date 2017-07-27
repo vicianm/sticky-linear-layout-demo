@@ -7,6 +7,7 @@
     tools:context="sk.plaut.dynamicformheader.demo.MainActivity">
 
     <TextView
+        app:pinAllowed="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -55,6 +56,7 @@
     </LinearLayout>
 
     <TextView
+        app:pinAllowed="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -119,6 +121,7 @@
     </LinearLayout>
 
     <TextView
+        app:pinAllowed="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -167,6 +170,7 @@
     </LinearLayout>
 
     <TextView
+        app:pinAllowed="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -231,6 +235,7 @@
     </LinearLayout>
 
     <TextView
+        app:pinAllowed="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -279,6 +284,7 @@
     </LinearLayout>
 
     <TextView
+        app:pinAllowed="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
