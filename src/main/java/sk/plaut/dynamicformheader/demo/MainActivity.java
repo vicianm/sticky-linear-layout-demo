@@ -3,6 +3,7 @@ package sk.plaut.dynamicformheader.demo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,8 +18,11 @@ public class MainActivity extends AppCompatActivity {
      * <code>View</code> instance which will be used
      * as a form header.
      */
-    public View createHeaderView(View formView) {
-        return null;
+    public View createHeader(View formView) {
+        TextView formTextView = (TextView)formView;
+        TextView headerTextView = (TextView)getLayoutInflater().inflate(R.layout.section_title, null);
+        headerTextView.setText(formTextView.getText());
+        return headerTextView;
     }
 
     /**
@@ -26,8 +30,11 @@ public class MainActivity extends AppCompatActivity {
      * <code>View</code> instance which will be used
      * as a form footer.
      */
-    public View createFooterView(View formView) {
-        return null;
+    public View createFooter(View formView) {
+        TextView formTextView = (TextView)formView;
+        TextView footerTextView = (TextView)getLayoutInflater().inflate(R.layout.section_title, null);
+        footerTextView.setText(formTextView.getText());
+        return footerTextView;
     }
 
 }
