@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- form_header_height is 3 times screen_margin -->
+    <dimen name="form_header_height">144dp</dimen>
+    <dimen name="screen_margin">48dp</dimen>
+
+    <dimen name="section_margin">@dimen/screen_margin</dimen>
+
+</resources>

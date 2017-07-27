@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/section_margin"
+    android:background="@drawable/section_header_bg"
+    android:gravity="center_vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="6dp"
+    android:paddingTop="10dp"
+    android:text="Section Title"
+    android:textAppearance="@style/TextAppearance.AppCompat.Large">
+</TextView>
