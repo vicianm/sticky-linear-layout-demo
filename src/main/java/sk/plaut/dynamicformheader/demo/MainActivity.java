@@ -1,4 +1,4 @@
-package sk.plaut.dynamicformheaderdemo;
+package sk.plaut.dynamicformheader.demo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
