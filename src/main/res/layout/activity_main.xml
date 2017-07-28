@@ -8,6 +8,7 @@
     app:onCreateHeader="createHeader"
     app:onCreateFooter="createFooter"
     app:onActiveSectionChanged="activeSectionChanged"
+    app:scrollToSectionMargin="@dimen/screen_margin"
     app:formPadding="@dimen/screen_margin" >
 
     <TextView
