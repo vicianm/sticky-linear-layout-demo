@@ -1,4 +1,4 @@
-<sk.plaut.dynamicformheader.DynamicFormHeaderLayout
+<com.github.vicianm.dynamicform.DynamicFormLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
@@ -12,7 +12,7 @@
     app:formPadding="@dimen/screen_margin" >
 
     <TextView
-        app:pinAllowed="true"
+        app:sectionHeader="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -61,7 +61,7 @@
     </LinearLayout>
 
     <TextView
-        app:pinAllowed="true"
+        app:sectionHeader="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -126,7 +126,7 @@
     </LinearLayout>
 
     <TextView
-        app:pinAllowed="true"
+        app:sectionHeader="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -175,7 +175,7 @@
     </LinearLayout>
 
     <TextView
-        app:pinAllowed="true"
+        app:sectionHeader="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -240,7 +240,7 @@
     </LinearLayout>
 
     <TextView
-        app:pinAllowed="true"
+        app:sectionHeader="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -289,7 +289,7 @@
     </LinearLayout>
 
     <TextView
-        app:pinAllowed="true"
+        app:sectionHeader="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/section_margin"
@@ -354,4 +354,4 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
     </LinearLayout>
 
-</sk.plaut.dynamicformheader.DynamicFormHeaderLayout>
+</com.github.vicianm.dynamicform.DynamicFormLayout>

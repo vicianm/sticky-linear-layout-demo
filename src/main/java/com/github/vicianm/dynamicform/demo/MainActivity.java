@@ -1,4 +1,4 @@
-package sk.plaut.dynamicformheader.demo;
+package com.github.vicianm.dynamicform.demo;
 
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
@@ -8,17 +8,17 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import sk.plaut.dynamicformheader.DynamicFormHeaderLayout;
+import com.github.vicianm.dynamicform.DynamicFormLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DynamicFormHeaderLayout rootView;
+    private DynamicFormLayout rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rootView = (DynamicFormHeaderLayout)findViewById(R.id.activity_main);
+        rootView = (DynamicFormLayout)findViewById(R.id.activity_main);
     }
 
     /**

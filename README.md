@@ -1,5 +1,5 @@
-# "Dynamic Form Header" Demo
+# "Dynamic Form" Demo
 
-Android application which demonstrates usage of dynamic-form-header library.
+Android application which demonstrates usage of dynamic-form library.
 
-Library URL: https://github.com/vicispan/dynamic-form-header
+Library URL: https://github.com/vicispan/dynamic-form
