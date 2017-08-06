@@ -2,4 +2,4 @@
 
 Android application which demonstrates usage of dynamic-form library.
 
-Library URL: https://github.com/vicispan/dynamic-form
+Library URL: https://github.com/vicianm/dynamic-form
