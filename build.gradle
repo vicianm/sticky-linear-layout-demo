@@ -8,8 +8,8 @@ android {
         applicationId "sk.plaut.dynamicformheader.demo"
         minSdkVersion 23
         targetSdkVersion 25
-        versionCode 1
-        versionName "v0.1-SNAPSHOT"
+        versionCode 2
+        versionName "0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
