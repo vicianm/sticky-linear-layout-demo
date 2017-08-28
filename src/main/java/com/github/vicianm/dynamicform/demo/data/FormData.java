@@ -61,4 +61,5 @@ public class FormData {
     public void setAddress03(AddressData address03) {
         this.address03 = address03;
     }
+
 }
