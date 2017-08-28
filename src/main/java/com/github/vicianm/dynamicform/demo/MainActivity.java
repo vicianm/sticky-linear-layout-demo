@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.List;
-
 import com.github.vicianm.dynamicform.DynamicFormLayout;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,9 +28,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public View createHeader(View formView) {
         TextView formTextView = (TextView)formView;
-        TextView headerTextView = (TextView)getLayoutInflater().inflate(R.layout.section_title, null);
-        headerTextView.setText(formTextView.getText());
-        return headerTextView;
+        View header = getLayoutInflater().inflate(R.layout.section_title, null);
+        TextView title = (TextView)header.findViewById(R.id.title);
+        title.setText(formTextView.getText());
+        return header;
     }
 
     /**
@@ -40,9 +41,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public View createFooter(View formView) {
         TextView formTextView = (TextView)formView;
-        TextView footerTextView = (TextView)getLayoutInflater().inflate(R.layout.section_title, null);
-        footerTextView.setText(formTextView.getText());
-        return footerTextView;
+        View footer = getLayoutInflater().inflate(R.layout.section_title, null);
+        TextView title = (TextView)footer.findViewById(R.id.title);
+        title.setText(formTextView.getText());
+        return footer;
     }
 
     /**
