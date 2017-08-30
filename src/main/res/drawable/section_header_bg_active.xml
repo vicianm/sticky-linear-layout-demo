@@ -9,7 +9,7 @@
         <inset
             android:insetTop="1dp" >
             <shape>
-                <solid android:color="@color/colorAccent"/>
+                <solid android:color="@color/activeHeaderBg"/>
             </shape>
         </inset>
     </item>

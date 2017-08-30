@@ -9,14 +9,17 @@
     app:onCreateFooter="createFooter"
     app:onActiveSectionChanged="activeSectionChanged"
     app:scrollToSectionMargin="@dimen/screen_margin"
-    app:formPadding="@dimen/screen_margin" >
+    android:paddingTop="@dimen/screen_margin"
+    android:paddingBottom="@dimen/screen_margin"
+    app:formPaddingLeft="@dimen/screen_margin"
+    app:formPaddingRight="@dimen/screen_margin"
+    >
 
     <TextView
         android:id="@+id/user01"
         app:sectionHeader="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/section_margin"
         android:background="@drawable/section_header_bg_transition"
         android:gravity="center_vertical"
         android:paddingBottom="10dp"
@@ -331,7 +334,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/section_content_bg_transition"
-        android:layout_marginBottom="@dimen/section_margin"
         android:orientation="vertical"
         android:paddingBottom="10dp"
         android:paddingLeft="6dp"
