@@ -2,11 +2,11 @@ package com.github.vicianm.dynamicform.demo.data;
 
 public class UserData {
 
-    private String name;
+    public String name;
 
-    private String surname;
+    public String surname;
 
-    private String id;
+    public String id;
 
     @Override
     public String toString() {

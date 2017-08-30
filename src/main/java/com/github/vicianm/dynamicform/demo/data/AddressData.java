@@ -2,15 +2,15 @@ package com.github.vicianm.dynamicform.demo.data;
 
 public class AddressData {
 
-    private String country;
+    public String country;
 
-    private String city;
+    public String city;
 
-    private String street;
+    public String street;
 
-    private String streetNo;
+    public String streetNo;
 
-    private String zip;
+    public String zip;
 
     @Override
     public String toString() {

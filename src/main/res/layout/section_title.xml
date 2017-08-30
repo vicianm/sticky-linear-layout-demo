@@ -28,4 +28,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium">
     </TextView>
 
+    <ImageView
+        android:id="@+id/img_validation_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="12dp"
+        android:src="@drawable/ic_checkmark"
+    />
+
 </LinearLayout>
