@@ -12,6 +12,7 @@ import com.github.vicianm.dynamicform.demo.data.AddressData;
 import com.github.vicianm.dynamicform.demo.data.FormData;
 import com.github.vicianm.dynamicform.demo.data.UserData;
 import com.github.vicianm.dynamicform.demo.validation.AddressValidator;
+import com.github.vicianm.dynamicform.demo.validation.UserValidator;
 import com.github.vicianm.dynamicform.demo.validation.ValidationCallback;
 import com.github.vicianm.dynamicform.demo.validation.ValidationResult;
 
@@ -44,10 +45,19 @@ public class MainActivity extends DataBindingActivity {
     }
 
     protected void bindUser(int sectionOrderNo, UserData data, int userSectionId) {
+
         View userView = findViewById(userSectionId);
-        bindUiData(userView, R.id.user_name, data, "name", null);
-        bindUiData(userView, R.id.user_surname, data, "surname", null);
-        bindUiData(userView, R.id.user_id, data, "id", null);
+
+        // Prepare validator
+        List<SectionData> sectionsData = dynamicFormLayout.getSectionsData();
+        SectionData sectionData = sectionsData.get(sectionOrderNo);
+        ValidationCallbackImpl validationCallback = new ValidationCallbackImpl(sectionData);
+        UserValidator userValidator = new UserValidator(validationCallback, data, userView);
+
+        // Bind
+        bindUiData(userView, R.id.user_name, data, "name", userValidator);
+        bindUiData(userView, R.id.user_surname, data, "surname", userValidator);
+        bindUiData(userView, R.id.user_id, data, "id", userValidator);
     }
 
     protected void bindAddress(int sectionOrderNo, AddressData data, int addressSectionId) {
@@ -57,7 +67,7 @@ public class MainActivity extends DataBindingActivity {
         // Prepare validator
         List<SectionData> sectionsData = dynamicFormLayout.getSectionsData();
         SectionData sectionData = sectionsData.get(sectionOrderNo);
-        AddressValidationCallback validationCallback = new AddressValidationCallback(sectionData);
+        ValidationCallbackImpl validationCallback = new ValidationCallbackImpl(sectionData);
         AddressValidator addressValidator = new AddressValidator(validationCallback, data, addressView);
 
         // Bind
@@ -156,11 +166,15 @@ public class MainActivity extends DataBindingActivity {
         footer.setText(text);
     }
 
-    class AddressValidationCallback implements ValidationCallback {
+    /**
+     * Updates header/footer/section validation icons each time
+     * validation cycle is triggered.
+     */
+    class ValidationCallbackImpl implements ValidationCallback {
 
         protected SectionData sectionData;
 
-        public AddressValidationCallback(SectionData sectionData) {
+        public ValidationCallbackImpl(SectionData sectionData) {
             this.sectionData = sectionData;
         }
 
