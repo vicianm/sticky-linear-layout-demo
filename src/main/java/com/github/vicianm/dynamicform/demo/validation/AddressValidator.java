@@ -32,17 +32,40 @@ public class AddressValidator implements Validator {
         result.add(validateTextViewNotNull(addressData.city, ui, R.id.address_city));
         result.add(validateTextViewNotNull(addressData.street, ui, R.id.address_street));
         result.add(validateTextViewNotNull(addressData.streetNo, ui, R.id.address_street_no));
-        result.add(validateTextViewNotNull(addressData.zip, ui, R.id.address_zip));
+        result.add(validateZip(addressData.zip, ui, R.id.address_zip));
 
         callback.validated(result);
+    }
+
+    protected ValidationResult validateZip(String dataString, View ui, int textViewId) {
+
+        TextView textView = (TextView) ui.findViewById(textViewId);
+        textView.setError(null);
+
+        if (TextUtils.isEmpty(dataString)) {
+            return new ValidationResult(textView, ValidationResult.Validity.UNKNOWN);
+
+        } else {
+            if (dataString.length() != 5) {
+                textView.setError("Please type in 5 digit ZIP code");
+                return new ValidationResult(textView, ValidationResult.Validity.ERROR);
+            }
+            try {
+                Integer.parseInt(dataString);
+            } catch (Throwable t) {
+                textView.setError("Please type in 5 digit ZIP code");
+                return new ValidationResult(textView, ValidationResult.Validity.ERROR);
+            }
+            return new ValidationResult(textView, ValidationResult.Validity.VALID);
+        }
     }
 
     protected ValidationResult validateTextViewNotNull(String dataString, View ui, int textViewId) {
         TextView textView = (TextView) ui.findViewById(textViewId);
         if (TextUtils.isEmpty(dataString)) {
-            return new ValidationResult(null, textView, ValidationResult.Validity.UNKNOWN);
+            return new ValidationResult(textView, ValidationResult.Validity.UNKNOWN);
         } else {
-            return new ValidationResult(null, textView, ValidationResult.Validity.VALID);
+            return new ValidationResult(textView, ValidationResult.Validity.VALID);
         }
     }
 

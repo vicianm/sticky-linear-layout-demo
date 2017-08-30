@@ -14,7 +14,7 @@ public class ValidationResult {
         /**
          * Data validation failed with errors.
          */
-        INVALID,
+        ERROR,
 
         /**
          * Data are not complete enough to be validated.
@@ -23,20 +23,13 @@ public class ValidationResult {
 
     }
 
-    public String message;
-
     public View item;
 
     public Validity validity;
 
-    public ValidationResult(String message, View item, Validity validity) {
-        this.message = message;
+    public ValidationResult(View item, Validity validity) {
         this.item = item;
         this.validity = validity;
-    }
-
-    public String getMessage() {
-        return message;
     }
 
     public View getItem() {
@@ -47,11 +40,4 @@ public class ValidationResult {
         return validity;
     }
 
-    @Override
-    public String toString() {
-        return "ValidationResult{" +
-                "message='" + message + '\'' +
-                ", validity=" + validity +
-                '}';
-    }
 }

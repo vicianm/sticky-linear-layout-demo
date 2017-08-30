@@ -173,7 +173,7 @@ public class MainActivity extends DataBindingActivity {
             boolean errorFound = false;
             boolean allValid = true;
             for (ValidationResult result : results) {
-                errorFound |= result.getValidity() == ValidationResult.Validity.INVALID;
+                errorFound |= result.getValidity() == ValidationResult.Validity.ERROR;
                 allValid &= result.getValidity() == ValidationResult.Validity.VALID;
             }
 
