@@ -7,7 +7,9 @@ import android.widget.TextView;
 
 import com.github.vicianm.dynamicform.DynamicFormLayout;
 import com.github.vicianm.dynamicform.SectionData;
+import com.github.vicianm.dynamicform.demo.data.AddressData;
 import com.github.vicianm.dynamicform.demo.data.FormData;
+import com.github.vicianm.dynamicform.demo.data.UserData;
 
 import java.util.List;
 
@@ -29,32 +31,28 @@ public class MainActivity extends DataBindingActivity {
 
         FormData formData = getFormData();
 
-        bindUiData(R.id.user01_name, formData.getUser01(), "name");
-        bindUiData(R.id.user01_surname, formData.getUser01(), "surname");
-        bindUiData(R.id.user01_id, formData.getUser01(), "id");
-        bindUiData(R.id.address01_country, formData.getAddress01(), "country");
-        bindUiData(R.id.address01_city, formData.getAddress01(), "city");
-        bindUiData(R.id.address01_street, formData.getAddress01(), "street");
-        bindUiData(R.id.address01_street_no, formData.getAddress01(), "streetNo");
-        bindUiData(R.id.address01_zip, formData.getAddress01(), "zip");
+        bindUser(getFormData().getUser01(), R.id.user01_section);
+        bindAddress(getFormData().getAddress01(), R.id.address01_section);
+        bindUser(getFormData().getUser02(), R.id.user02_section);
+        bindAddress(getFormData().getAddress02(), R.id.address02_section);
+        bindUser(getFormData().getUser03(), R.id.user03_section);
+        bindAddress(getFormData().getAddress03(), R.id.address03_section);
+    }
 
-        bindUiData(R.id.user02_name, formData.getUser02(), "name");
-        bindUiData(R.id.user02_surname, formData.getUser02(), "surname");
-        bindUiData(R.id.user02_id, formData.getUser02(), "id");
-        bindUiData(R.id.address02_country, formData.getAddress02(), "country");
-        bindUiData(R.id.address02_city, formData.getAddress02(), "city");
-        bindUiData(R.id.address02_street, formData.getAddress02(), "street");
-        bindUiData(R.id.address02_street_no, formData.getAddress02(), "streetNo");
-        bindUiData(R.id.address02_zip, formData.getAddress02(), "zip");
+    protected void bindUser(UserData data, int userSectionId) {
+        View userView = findViewById(userSectionId);
+        bindUiData(userView, R.id.user_name, data, "name");
+        bindUiData(userView, R.id.user_surname, data, "surname");
+        bindUiData(userView, R.id.user_id, data, "id");
+    }
 
-        bindUiData(R.id.user03_name, formData.getUser03(), "name");
-        bindUiData(R.id.user03_surname, formData.getUser03(), "surname");
-        bindUiData(R.id.user03_id, formData.getUser03(), "id");
-        bindUiData(R.id.address03_country, formData.getAddress03(), "country");
-        bindUiData(R.id.address03_city, formData.getAddress03(), "city");
-        bindUiData(R.id.address03_street, formData.getAddress03(), "street");
-        bindUiData(R.id.address03_street_no, formData.getAddress03(), "streetNo");
-        bindUiData(R.id.address03_zip, formData.getAddress03(), "zip");
+    protected void bindAddress(AddressData data, int addressSectionId) {
+        View addressView = findViewById(addressSectionId);
+        bindUiData(addressView, R.id.address_country, data, "country");
+        bindUiData(addressView, R.id.address_city, data, "city");
+        bindUiData(addressView, R.id.address_street, data, "street");
+        bindUiData(addressView, R.id.address_street_no, data, "streetNo");
+        bindUiData(addressView, R.id.address_zip, data, "zip");
     }
 
     protected FormData getFormData() {
@@ -138,7 +136,6 @@ public class MainActivity extends DataBindingActivity {
                 case 5: updateHeaderDescription(up, down, formData.getAddress03().toString()); break;
             }
         }
-
     }
 
     protected void updateHeaderDescription(TextView header, TextView footer, String text) {

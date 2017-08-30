@@ -4,23 +4,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.lang.reflect.Field;
 
 /**
  * <code>AppCompatActivity</code> with simple <code>TextView</code> data binding support.
- * @see #bindUiData(int, Object, String)
+ * @see #bindUiData(View, int, Object, String)
  */
 public class DataBindingActivity extends AppCompatActivity {
 
-    protected void bindUiData(int fieldId, final Object dataObject, final String fieldName) {
-        TextView textView = (TextView)findViewById(fieldId);
+    protected void bindUiData(View container, int containerFieldId, final Object dataObject, final String dataObjectFieldName) {
+
+        TextView textView = (TextView)container.findViewById(containerFieldId);
         textView.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-                    Field declaredField = dataObject.getClass().getDeclaredField(fieldName);
+                    Field declaredField = dataObject.getClass().getDeclaredField(dataObjectFieldName);
                     declaredField.setAccessible(true);
                     declaredField.set(dataObject, s.toString());
                 } catch (Throwable t) {

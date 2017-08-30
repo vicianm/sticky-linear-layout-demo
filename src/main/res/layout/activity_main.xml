@@ -30,6 +30,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <LinearLayout
+        android:id="@+id/user01_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/section_content_bg_transition"
@@ -40,7 +41,7 @@
         android:paddingTop="10dp">
 
         <EditText
-            android:id="@+id/user01_name"
+            android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -49,7 +50,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/user01_surname"
+            android:id="@+id/user_surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -58,7 +59,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/user01_id"
+            android:id="@+id/user_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -83,6 +84,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <LinearLayout
+        android:id="@+id/address01_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/section_content_bg_transition"
@@ -93,7 +95,7 @@
         android:paddingTop="10dp">
 
         <EditText
-            android:id="@+id/address01_country"
+            android:id="@+id/address_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -102,7 +104,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address01_city"
+            android:id="@+id/address_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -111,7 +113,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address01_street"
+            android:id="@+id/address_street"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -120,7 +122,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address01_street_no"
+            android:id="@+id/address_street_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -129,7 +131,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address01_zip"
+            android:id="@+id/address_zip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -154,6 +156,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <LinearLayout
+        android:id="@+id/user02_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/section_content_bg_transition"
@@ -164,7 +167,7 @@
         android:paddingTop="10dp">
 
         <EditText
-            android:id="@+id/user02_name"
+            android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -173,7 +176,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/user02_surname"
+            android:id="@+id/user_surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -182,7 +185,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/user02_id"
+            android:id="@+id/user_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -207,6 +210,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <LinearLayout
+        android:id="@+id/address02_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/section_content_bg_transition"
@@ -217,7 +221,7 @@
         android:paddingTop="10dp">
 
         <EditText
-            android:id="@+id/address02_country"
+            android:id="@id/address_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -226,7 +230,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address02_city"
+            android:id="@id/address_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -235,7 +239,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address02_street"
+            android:id="@id/address_street"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -244,7 +248,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address02_street_no"
+            android:id="@id/address_street_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -253,7 +257,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address02_zip"
+            android:id="@id/address_zip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -278,6 +282,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <LinearLayout
+        android:id="@+id/user03_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/section_content_bg_transition"
@@ -288,7 +293,7 @@
         android:paddingTop="10dp">
 
         <EditText
-            android:id="@+id/user03_name"
+            android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -297,7 +302,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/user03_surname"
+            android:id="@+id/user_surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -306,7 +311,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/user03_id"
+            android:id="@+id/user_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -331,6 +336,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <LinearLayout
+        android:id="@+id/address03_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/section_content_bg_transition"
@@ -341,7 +347,7 @@
         android:paddingTop="10dp">
 
         <EditText
-            android:id="@+id/address03_country"
+            android:id="@id/address_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -350,7 +356,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address03_city"
+            android:id="@id/address_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -359,7 +365,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address03_street"
+            android:id="@id/address_street"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -368,7 +374,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address03_street_no"
+            android:id="@id/address_street_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -377,7 +383,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
 
         <EditText
-            android:id="@+id/address03_zip"
+            android:id="@id/address_zip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
