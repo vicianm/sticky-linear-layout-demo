@@ -89,7 +89,7 @@ public class MainActivity extends DataBindingActivity {
      * as a form header.
      */
     public View createHeader(View formView) {
-        TextView formTextView = (TextView)formView;
+        TextView formTextView = (TextView)formView.findViewById(R.id.title);
         View header = getLayoutInflater().inflate(R.layout.section_title, null);
         TextView title = (TextView)header.findViewById(R.id.title);
         title.setText(formTextView.getText());
@@ -102,7 +102,7 @@ public class MainActivity extends DataBindingActivity {
      * as a form footer.
      */
     public View createFooter(View formView) {
-        TextView formTextView = (TextView)formView;
+        TextView formTextView = (TextView)formView.findViewById(R.id.title);
         View footer = getLayoutInflater().inflate(R.layout.section_title, null);
         TextView title = (TextView)footer.findViewById(R.id.title);
         title.setText(formTextView.getText());
@@ -121,25 +121,25 @@ public class MainActivity extends DataBindingActivity {
     }
 
     protected void updateSectionBackground(List<SectionData> sectionData, int activeHeaderIndex, int previousHeaderIndex) {
-        for (int i = 0; i<sectionData.size(); i++) {
-            SectionData section = sectionData.get(i);
-
-            TextView header = (TextView) section.getUnpinnedHeader();
-
-            int childLayoutIndex = dynamicFormLayout.getFormLayout().indexOfChild(header);
-            View sectionContent = dynamicFormLayout.getFormLayout().getChildAt(childLayoutIndex + 1);
-
-            TransitionDrawable headerTransition = (TransitionDrawable)header.getBackground();
-            TransitionDrawable contentTransition = (TransitionDrawable)sectionContent.getBackground();
-
-            if (i == activeHeaderIndex) {
-                headerTransition.startTransition(200);
-                contentTransition.startTransition(200);
-            } else if (i == previousHeaderIndex) {
-                headerTransition.reverseTransition(200);
-                contentTransition.reverseTransition(200);
-            }
-        }
+//        for (int i = 0; i<sectionData.size(); i++) {
+//            SectionData section = sectionData.get(i);
+//
+//            View header = section.getUnpinnedHeader();
+//
+//            int childLayoutIndex = dynamicFormLayout.getFormLayout().indexOfChild(header);
+//            View sectionContent = dynamicFormLayout.getFormLayout().getChildAt(childLayoutIndex + 1);
+//
+//            TransitionDrawable headerTransition = (TransitionDrawable)header.getBackground();
+//            TransitionDrawable contentTransition = (TransitionDrawable)sectionContent.getBackground();
+//
+//            if (i == activeHeaderIndex) {
+//                headerTransition.startTransition(200);
+//                contentTransition.startTransition(200);
+//            } else if (i == previousHeaderIndex) {
+//                headerTransition.reverseTransition(200);
+//                contentTransition.reverseTransition(200);
+//            }
+//        }
     }
 
     protected void updateHeaderDescription(List<SectionData> sectionData) {
@@ -194,8 +194,8 @@ public class MainActivity extends DataBindingActivity {
             // Find UI components we will update
             View pinnedUpHeader = sectionData.getPinnedUpHeader();
             ImageView pinnedUpValidationImage = (ImageView)pinnedUpHeader.findViewById(R.id.img_validation_result);
-//            View unpinnedHeader = sectionData.getUnpinnedHeader();
-//            ImageView pinnedUpValidationImage = (ImageView)pinnedUpHeader.findViewById(R.id.img_validation_result);
+            View unpinnedHeader = sectionData.getUnpinnedHeader();
+            ImageView unpinnedValidationImage = (ImageView)unpinnedHeader.findViewById(R.id.img_validation_result);
             View pinnedDownHeader = sectionData.getPinnedDownHeader();
             ImageView pinnedDownValidationImage = (ImageView)pinnedDownHeader.findViewById(R.id.img_validation_result);
 
@@ -203,24 +203,27 @@ public class MainActivity extends DataBindingActivity {
                 // All fields of form section are valid.
                 // Show green checkbox.
                 pinnedUpValidationImage.setVisibility(View.VISIBLE);
+                unpinnedValidationImage.setVisibility(View.VISIBLE);
                 pinnedDownValidationImage.setVisibility(View.VISIBLE);
                 pinnedUpValidationImage.setImageResource(R.drawable.ic_checkmark);
+                unpinnedValidationImage.setImageResource(R.drawable.ic_checkmark);
                 pinnedDownValidationImage.setImageResource(R.drawable.ic_checkmark);
-                // TODO
             } else if (errorFound) {
                 // Form section contains validation error.
                 // Show red cross.
                 pinnedUpValidationImage.setVisibility(View.VISIBLE);
+                unpinnedValidationImage.setVisibility(View.VISIBLE);
                 pinnedDownValidationImage.setVisibility(View.VISIBLE);
                 pinnedUpValidationImage.setImageResource(R.drawable.ic_cross);
+                unpinnedValidationImage.setImageResource(R.drawable.ic_cross);
                 pinnedDownValidationImage.setImageResource(R.drawable.ic_cross);
-                // TODO
             } else {
                 // Form section is incomplete.
-                // Hide any validation icon.
+                // Hide any validation icons.
                 pinnedUpValidationImage.setVisibility(View.INVISIBLE);
+                unpinnedValidationImage.setVisibility(View.INVISIBLE);
+                unpinnedValidationImage.setVisibility(View.INVISIBLE);
                 pinnedDownValidationImage.setVisibility(View.INVISIBLE);
-                // TODO
             }
 
         }
