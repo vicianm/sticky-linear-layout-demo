@@ -30,7 +30,7 @@
         app:onActiveSectionChanged="activeSectionChanged"
         app:scrollToSectionMargin="@dimen/screen_margin"
         android:paddingTop="@dimen/screen_margin"
-        android:paddingBottom="@dimen/screen_margin"
+        android:paddingBottom="@dimen/third_screen_margin"
         app:formPaddingLeft="@dimen/screen_margin"
         app:formPaddingRight="@dimen/screen_margin" >
 
@@ -582,6 +582,7 @@
         <FrameLayout
             app:sectionHeader="true"
             android:id="@+id/section_submit"
+            android:paddingTop="@dimen/third_screen_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
