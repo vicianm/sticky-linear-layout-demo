@@ -40,9 +40,9 @@ public class AddressValidator implements Validator {
     protected ValidationResult validateZip(String dataString, View ui, int textViewId) {
 
         TextView textView = (TextView) ui.findViewById(textViewId);
-        textView.setError(null);
 
         if (TextUtils.isEmpty(dataString)) {
+            textView.setError(null);
             return new ValidationResult(textView, ValidationResult.Validity.UNKNOWN);
 
         } else {
@@ -56,6 +56,7 @@ public class AddressValidator implements Validator {
                 textView.setError("Please type in 5 digit ZIP code");
                 return new ValidationResult(textView, ValidationResult.Validity.ERROR);
             }
+            textView.setError(null);
             return new ValidationResult(textView, ValidationResult.Validity.VALID);
         }
     }
