@@ -31,6 +31,7 @@ public class MainActivity extends DataBindingActivity {
         dynamicFormLayout = (DynamicFormLayout)findViewById(R.id.activity_main);
 
         bindUiData();
+        validateForm(); // this resets/initializes validation icons
     }
 
     protected void bindUiData() {

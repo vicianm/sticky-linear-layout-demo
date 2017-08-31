@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.github.vicianm.dynamicform.demo.validation.Validator;
 
 import java.lang.reflect.Field;
+import java.util.Collection;
+import java.util.LinkedList;
 
 /**
  * <code>AppCompatActivity</code> with simple <code>TextView</code> data binding support.
@@ -17,7 +19,11 @@ import java.lang.reflect.Field;
  */
 public class DataBindingActivity extends AppCompatActivity {
 
+    protected Collection<Validator> validators = new LinkedList<>();
+
     protected void bindUiData(View container, int containerFieldId, final Object dataObject, final String dataObjectFieldName, final Validator validator) {
+
+        validators.add(validator);
 
         TextView textView = (TextView)container.findViewById(containerFieldId);
         textView.addTextChangedListener(new TextWatcher() {
@@ -45,6 +51,15 @@ public class DataBindingActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
+    }
+
+    /**
+     * Executes all validators bound to the form.
+     */
+    protected void validateForm() {
+        for (Validator validator : validators) {
+            validator.validate();
+        }
     }
 
 }
