@@ -1,4 +1,4 @@
-package com.github.vicianm.dynamicform.demo;
+package com.github.vicianm.stickylinearlayout.demo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.github.vicianm.dynamicform.demo.validation.Validator;
+import com.github.vicianm.stickylinearlayout.demo.validation.Validator;
 
 import java.lang.reflect.Field;
 import java.util.Collection;

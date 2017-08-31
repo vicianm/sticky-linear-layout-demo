@@ -1,4 +1,4 @@
-package com.github.vicianm.dynamicform.demo.validation;
+package com.github.vicianm.stickylinearlayout.demo.validation;
 
 import android.view.View;
 

@@ -1,10 +1,10 @@
-package com.github.vicianm.dynamicform.demo;
+package com.github.vicianm.stickylinearlayout.demo;
 
 import android.app.Application;
 
-import com.github.vicianm.dynamicform.demo.data.AddressData;
-import com.github.vicianm.dynamicform.demo.data.FormData;
-import com.github.vicianm.dynamicform.demo.data.UserData;
+import com.github.vicianm.stickylinearlayout.demo.data.AddressData;
+import com.github.vicianm.stickylinearlayout.demo.data.FormData;
+import com.github.vicianm.stickylinearlayout.demo.data.UserData;
 
 public class DemoApplication extends Application {
 

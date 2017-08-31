@@ -1,4 +1,4 @@
-package com.github.vicianm.dynamicform.demo.data;
+package com.github.vicianm.stickylinearlayout.demo.data;
 
 public class AddressData {
 

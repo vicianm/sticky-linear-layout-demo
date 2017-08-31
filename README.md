@@ -1,5 +1,5 @@
-# "Dynamic Form" Demo
+# StickyLinearLayout Demo
 
-Android application which demonstrates usage of dynamic-form library.
+Android application which demonstrates usage of sticky-linear-layout library.
 
-Library URL: https://github.com/vicianm/dynamic-form
+Library URL: https://github.com/vicianm/sticky-linear-layout

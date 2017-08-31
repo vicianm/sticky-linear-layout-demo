@@ -1,40 +1,39 @@
-package com.github.vicianm.dynamicform.demo;
+package com.github.vicianm.stickylinearlayout.demo;
 
-import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.vicianm.dynamicform.DynamicFormLayout;
-import com.github.vicianm.dynamicform.SectionData;
-import com.github.vicianm.dynamicform.demo.data.AddressData;
-import com.github.vicianm.dynamicform.demo.data.FormData;
-import com.github.vicianm.dynamicform.demo.data.UserData;
-import com.github.vicianm.dynamicform.demo.validation.AddressValidator;
-import com.github.vicianm.dynamicform.demo.validation.UserValidator;
-import com.github.vicianm.dynamicform.demo.validation.ValidationCallback;
-import com.github.vicianm.dynamicform.demo.validation.ValidationResult;
+import com.github.vicianm.stickylinearlayout.StickyLinearLayout;
+import com.github.vicianm.stickylinearlayout.SectionData;
+import com.github.vicianm.stickylinearlayout.demo.data.AddressData;
+import com.github.vicianm.stickylinearlayout.demo.data.FormData;
+import com.github.vicianm.stickylinearlayout.demo.data.UserData;
+import com.github.vicianm.stickylinearlayout.demo.validation.AddressValidator;
+import com.github.vicianm.stickylinearlayout.demo.validation.UserValidator;
+import com.github.vicianm.stickylinearlayout.demo.validation.ValidationCallback;
+import com.github.vicianm.stickylinearlayout.demo.validation.ValidationResult;
 
 import java.util.Collection;
 import java.util.List;
 
 public class MainActivity extends DataBindingActivity {
 
-    private DynamicFormLayout dynamicFormLayout;
+    private StickyLinearLayout stickyLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        dynamicFormLayout = (DynamicFormLayout)findViewById(R.id.sticky_linear_layout);
+        stickyLinearLayout = (StickyLinearLayout)findViewById(R.id.sticky_linear_layout);
 
         // Update internal form height when soft keyboard
         // is show/hidden or when viewport (ScrollView) dimension
         // is changed for any reason.
-        dynamicFormLayout.getFormLayoutScrollView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+        stickyLinearLayout.getFormLayoutScrollView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom,
                                        int oldLeft, int oldTop, int oldRight, int oldBottom) {
@@ -62,7 +61,7 @@ public class MainActivity extends DataBindingActivity {
         View userView = findViewById(userSectionId);
 
         // Prepare validator
-        List<SectionData> sectionsData = dynamicFormLayout.getSectionsData();
+        List<SectionData> sectionsData = stickyLinearLayout.getSectionsData();
         SectionData sectionData = sectionsData.get(sectionOrderNo);
         ValidationCallbackImpl validationCallback = new ValidationCallbackImpl(sectionData);
         UserValidator userValidator = new UserValidator(validationCallback, data, userView);
@@ -78,7 +77,7 @@ public class MainActivity extends DataBindingActivity {
         View addressView = findViewById(addressSectionId);
 
         // Prepare validator
-        List<SectionData> sectionsData = dynamicFormLayout.getSectionsData();
+        List<SectionData> sectionsData = stickyLinearLayout.getSectionsData();
         SectionData sectionData = sectionsData.get(sectionOrderNo);
         ValidationCallbackImpl validationCallback = new ValidationCallbackImpl(sectionData);
         AddressValidator addressValidator = new AddressValidator(validationCallback, data, addressView);
@@ -149,8 +148,8 @@ public class MainActivity extends DataBindingActivity {
 //
 //            View header = section.getUnpinnedHeader();
 //
-//            int childLayoutIndex = dynamicFormLayout.getFormLayout().indexOfChild(header);
-//            View sectionContent = dynamicFormLayout.getFormLayout().getChildAt(childLayoutIndex + 1);
+//            int childLayoutIndex = stickyLinearLayout.getFormLayout().indexOfChild(header);
+//            View sectionContent = stickyLinearLayout.getFormLayout().getChildAt(childLayoutIndex + 1);
 //
 //            TransitionDrawable headerTransition = (TransitionDrawable)header.getBackground();
 //            TransitionDrawable contentTransition = (TransitionDrawable)sectionContent.getBackground();
@@ -210,7 +209,7 @@ public class MainActivity extends DataBindingActivity {
         // Calculate header height if all the other sections are folded/collapsed.
         int maxHeaderHeight = 0;
         int submitSectionHeight = 0;
-        for (SectionData sectionData : dynamicFormLayout.getSectionsData()) {
+        for (SectionData sectionData : stickyLinearLayout.getSectionsData()) {
             if (sectionData.getUnpinnedHeader().getId() == R.id.section_submit) {
                 submitSectionHeight = sectionData.getUnpinnedHeader().getHeight();
             } else {
@@ -220,7 +219,7 @@ public class MainActivity extends DataBindingActivity {
 
         // Calculate new height of 'padding view'
         int newPaddingViewHeight =
-                dynamicFormLayout.getFormLayoutScrollView().getHeight()
+                stickyLinearLayout.getFormLayoutScrollView().getHeight()
                 - maxHeaderHeight
                 - submitSectionHeight;
 

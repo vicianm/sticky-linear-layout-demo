@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
-    <com.github.vicianm.dynamicform.DynamicFormLayout
+    <com.github.vicianm.stickylinearlayout.StickyLinearLayout
         android:id="@+id/sticky_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -610,5 +610,5 @@
             android:layout_width="match_parent"
             android:layout_height="10dp" />
 
-    </com.github.vicianm.dynamicform.DynamicFormLayout>
+    </com.github.vicianm.stickylinearlayout.StickyLinearLayout>
 </LinearLayout>
