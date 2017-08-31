@@ -27,11 +27,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:paddingTop="@dimen/screen_margin"
         app:onCreateHeader="createHeader"
         app:onCreateFooter="createFooter"
         app:onActiveSectionChanged="activeSectionChanged"
-        app:scrollToSectionMargin="@dimen/screen_margin"
-        android:paddingTop="@dimen/screen_margin"
+        app:defaultScrollToSectionMargin="@dimen/screen_margin"
         app:formPaddingLeft="@dimen/screen_margin"
         app:formPaddingRight="@dimen/screen_margin" >
 
@@ -582,6 +582,7 @@
 
         <FrameLayout
             app:sectionHeader="true"
+            app:scrollToSectionMargin="0dp"
             android:id="@+id/section_submit"
             android:paddingTop="@dimen/third_screen_margin"
             android:paddingBottom="@dimen/third_screen_margin"
