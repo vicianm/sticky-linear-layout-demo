@@ -10,4 +10,6 @@
     <color name="inactiveHeaderBg">#e0e0e0</color>
     <color name="inactiveContentBg">#f1f1f1</color>
 
+    <color name="confirmGreen">#8bc34a</color>
+
 </resources>
