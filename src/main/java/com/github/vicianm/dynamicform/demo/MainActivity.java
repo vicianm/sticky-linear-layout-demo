@@ -3,6 +3,7 @@ package com.github.vicianm.dynamicform.demo;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,7 +29,18 @@ public class MainActivity extends DataBindingActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        dynamicFormLayout = (DynamicFormLayout)findViewById(R.id.activity_main);
+        dynamicFormLayout = (DynamicFormLayout)findViewById(R.id.sticky_linear_layout);
+
+        // Update internal form height when soft keyboard
+        // is show/hidden or when viewport (ScrollView) dimension
+        // is changed for any reason.
+        dynamicFormLayout.getFormLayoutScrollView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom,
+                                       int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                updateBottomPaddingViewHeight();
+            }
+        });
 
         bindUiData();
         validateForm(); // this resets/initializes validation icons
@@ -175,6 +187,48 @@ public class MainActivity extends DataBindingActivity {
     protected void updateHeaderDescription(TextView header, TextView footer, String text) {
         header.setText(text);
         footer.setText(text);
+    }
+
+    /**
+     * Declared in layout XML file.
+     * Called when user clicks the 'submit form' button.
+     */
+    public void submit(View view) {
+        // TODO
+    }
+
+    /**
+     * Called when there is a need to update height of 'bottom padding view'.
+     * <p>This usually occurs when soft keyboard is shown/hidden.</p>
+     * <p>The 'bottom padding view' ensures the position of submit button.
+     * When for is scrolled to the very bottom we want submit section to be visible
+     * while we want all the other sections to be folded/collapsed.</p>
+     */
+    protected void updateBottomPaddingViewHeight() {
+
+        // Get height of 'submit section'.
+        // Calculate header height if all the other sections are folded/collapsed.
+        int maxHeaderHeight = 0;
+        int submitSectionHeight = 0;
+        for (SectionData sectionData : dynamicFormLayout.getSectionsData()) {
+            if (sectionData.getUnpinnedHeader().getId() == R.id.section_submit) {
+                submitSectionHeight = sectionData.getUnpinnedHeader().getHeight();
+            } else {
+                maxHeaderHeight += sectionData.getUnpinnedHeader().getHeight();
+            }
+        }
+
+        // Calculate new height of 'padding view'
+        int newPaddingViewHeight =
+                dynamicFormLayout.getFormLayoutScrollView().getHeight()
+                - maxHeaderHeight
+                - submitSectionHeight;
+
+        // Update 'padding view' height
+        View paddingView = findViewById(R.id.bottom_padding_view);
+        ViewGroup.LayoutParams params = paddingView.getLayoutParams();
+        params.height = newPaddingViewHeight;
+        paddingView.setLayoutParams(params);
     }
 
     /**

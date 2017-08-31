@@ -23,7 +23,7 @@
         android:layout_gravity="center"/>
 
     <com.github.vicianm.dynamicform.DynamicFormLayout
-        android:id="@+id/activity_main"
+        android:id="@+id/sticky_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -32,7 +32,6 @@
         app:onActiveSectionChanged="activeSectionChanged"
         app:scrollToSectionMargin="@dimen/screen_margin"
         android:paddingTop="@dimen/screen_margin"
-        android:paddingBottom="@dimen/third_screen_margin"
         app:formPaddingLeft="@dimen/screen_margin"
         app:formPaddingRight="@dimen/screen_margin" >
 
@@ -585,6 +584,7 @@
             app:sectionHeader="true"
             android:id="@+id/section_submit"
             android:paddingTop="@dimen/third_screen_margin"
+            android:paddingBottom="@dimen/third_screen_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -598,9 +598,16 @@
 
         </FrameLayout>
 
+        <!-- The height of this padding view is recalculated -->
+        <!-- each time the ScrollView dimension is changed.  -->
+        <!-- The height is calculated in a way that when     -->
+        <!-- form is scrolled to the bottom then the only    -->
+        <!-- unfolded section is 'submit' button while all   -->
+        <!-- the other form sections are collapsed/folded.   -->
         <View
+            android:id="@+id/bottom_padding_view"
             android:layout_width="match_parent"
-            android:layout_height="460dp" />
+            android:layout_height="10dp" />
 
     </com.github.vicianm.dynamicform.DynamicFormLayout>
 </LinearLayout>
