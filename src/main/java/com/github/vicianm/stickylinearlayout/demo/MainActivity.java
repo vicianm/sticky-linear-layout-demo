@@ -101,16 +101,11 @@ public class MainActivity extends DataBindingActivity {
      * as a form header.
      */
     public View createHeader(View formView) {
-        if (formView.getId() == R.id.section_submit) {
-            View header = getLayoutInflater().inflate(R.layout.section_submit, null);
-            return header;
-        } else {
-            TextView formTextView = (TextView) formView.findViewById(R.id.title);
-            View header = getLayoutInflater().inflate(R.layout.section_title, null);
-            TextView title = (TextView) header.findViewById(R.id.title);
-            title.setText(formTextView.getText());
-            return header;
-        }
+        TextView formTextView = (TextView) formView.findViewById(R.id.title);
+        View header = getLayoutInflater().inflate(R.layout.section_title, null);
+        TextView title = (TextView) header.findViewById(R.id.title);
+        title.setText(formTextView.getText());
+        return header;
     }
 
     /**
@@ -119,16 +114,11 @@ public class MainActivity extends DataBindingActivity {
      * as a form footer.
      */
     public View createFooter(View formView) {
-        if (formView.getId() == R.id.section_submit) {
-            View header = getLayoutInflater().inflate(R.layout.section_submit, null);
-            return header;
-        } else {
-            TextView formTextView = (TextView) formView.findViewById(R.id.title);
-            View footer = getLayoutInflater().inflate(R.layout.section_title, null);
-            TextView title = (TextView) footer.findViewById(R.id.title);
-            title.setText(formTextView.getText());
-            return footer;
-        }
+        TextView formTextView = (TextView) formView.findViewById(R.id.title);
+        View footer = getLayoutInflater().inflate(R.layout.section_title, null);
+        TextView title = (TextView) footer.findViewById(R.id.title);
+        title.setText(formTextView.getText());
+        return footer;
     }
 
     /**
@@ -210,11 +200,7 @@ public class MainActivity extends DataBindingActivity {
         int maxHeaderHeight = 0;
         int submitSectionHeight = 0;
         for (SectionData sectionData : stickyLinearLayout.getSectionsData()) {
-            if (sectionData.getUnpinnedHeader().getId() == R.id.section_submit) {
-                submitSectionHeight = sectionData.getUnpinnedHeader().getHeight();
-            } else {
-                maxHeaderHeight += sectionData.getUnpinnedHeader().getHeight();
-            }
+            maxHeaderHeight += sectionData.getUnpinnedHeader().getHeight();
         }
 
         // Calculate new height of 'padding view'

@@ -580,25 +580,6 @@
                          android:textAppearance="@style/TextAppearance.AppCompat.Large"></EditText>
                          </LinearLayout>
 
-        <FrameLayout
-            app:sectionHeader="true"
-            app:scrollToSectionMargin="0dp"
-            android:id="@+id/section_submit"
-            android:paddingTop="@dimen/third_screen_margin"
-            android:paddingBottom="@dimen/third_screen_margin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:backgroundTint="@color/confirmGreen"
-                android:layout_gravity="end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="submit"
-                android:text="SUBMIT"/>
-
-        </FrameLayout>
-
         <!-- The height of this padding view is recalculated -->
         <!-- each time the ScrollView dimension is changed.  -->
         <!-- The height is calculated in a way that when     -->
