@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ScrollView;
 
 public class TestVerticalViewPager extends ViewPager {
 
@@ -56,21 +55,31 @@ public class TestVerticalViewPager extends ViewPager {
     }
 
     private float mmLastMotionY;
+    boolean childTopOverScroll = false;
+    boolean childBottomOverScroll = false;
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
 
         MotionEvent swappedMotionEvent = mSwipeOrientation == VERTICAL ? swapXY(event) : event;
 
-        boolean doIntercept = false;
+        childTopOverScroll = false;
+        childBottomOverScroll = false;
 
         final int action = event.getAction() & MotionEventCompat.ACTION_MASK;
 
+        Object child = getTestPagerAdapter().getPrimaryItemObject();
+        TestScrollView4 childScrollView = (child instanceof TestScrollView4)
+                ? (TestScrollView4) child
+                : null;
+
+
         if (action == MotionEvent.ACTION_MOVE) {
 
-            Object child = getTestPagerAdapter().getPrimaryItemObject();
-
-            if (child instanceof ScrollView) {
+            // Treat scroll view differently.
+            // Intercept only if ScrollView is scrolled to the very top/bottom.
+            // Otherwise let ScrollView do its work first - just scroll according to user gesture.
+            if (childScrollView != null) {
                 TestScrollView4 scrollView = (TestScrollView4) child;
 
                 Log.d("TestVerticalViewPager", "### onInterceptTouchEvent.scrollView.getScrollY: " + scrollView.getScrollY() + " hash: " + scrollView.hashCode());
@@ -78,21 +87,25 @@ public class TestVerticalViewPager extends ViewPager {
                 final float y = swappedMotionEvent.getY(0);
                 final float dy = y - mmLastMotionY;
                 if (scrollView.isScrolledToTop() && dy < 0) {
-                    doIntercept = true;
+                    childTopOverScroll = true;
                 }
                 if (scrollView.isScrolledToBottom() && dy > 0) {
-                    doIntercept = true;
+                    childBottomOverScroll = true;
                 }
+
+                Log.d("TestVerticalViewPager", "### onInterceptTouchEvent.#isScrolledToTop: " + scrollView.isScrolledToTop());
+                Log.d("TestVerticalViewPager", "### onInterceptTouchEvent.#isScrolledToBottom: " + scrollView.isScrolledToBottom());
+                Log.d("TestVerticalViewPager", "### onInterceptTouchEvent.#dy: " + dy);
+
             }
         }
 
-        if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_MOVE) {
-            mmLastMotionY = swappedMotionEvent.getY(0);
-        }
+        mmLastMotionY = swappedMotionEvent.getY(0);
 
-
-        if (doIntercept || action == MotionEvent.ACTION_DOWN) {
-            return super.onInterceptTouchEvent(swappedMotionEvent);
+        if (childScrollView == null || childTopOverScroll || childBottomOverScroll || action == MotionEvent.ACTION_DOWN) {
+            boolean intercepted = super.onInterceptTouchEvent(swappedMotionEvent);
+            Log.d("TestVerticalViewPager", "### onInterceptTouchEvent.#intercepted: " + intercepted);
+            return intercepted;
         }
 
         return false;
