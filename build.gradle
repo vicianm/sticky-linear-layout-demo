@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "sk.plaut.dynamicformheader.demo"
+        applicationId "com.github.vicianm.stickylinearlayout.demo"
         minSdkVersion 23
         targetSdkVersion 25
         versionCode 2
